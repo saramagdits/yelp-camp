@@ -13,7 +13,7 @@ var express      = require("express"),
 
 //ENVIRONMENT VARIABLES
 var DATABASEURL = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_12";
-var HOSTIP = process.env.IP || "127.0.0.1";
+var HOSTIP = process.env.IP || 127.0.0.1;
 var HOSTPORT = process.env.PORT || 3000;
 
 //ROUTE REQUIREMENTS
