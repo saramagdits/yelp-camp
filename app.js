@@ -13,8 +13,8 @@ var express      = require("express"),
 
 //ENVIRONMENT VARIABLES
 var DATABASEURL = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_12";
-var IP = process.env.IP || "127.0.0.1";
-var PORT = process.env.PORT || 3000;
+var HOSTIP = process.env.IP || "127.0.0.1";
+var HOSTPORT = process.env.PORT || 3000;
 
 //ROUTE REQUIREMENTS
 var campgroundRoutes = require("./routes/campgrounds"),
@@ -63,6 +63,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //LISTENER
-app.listen(PORT, IP, function(){
+app.listen(HOSTPORT, HOSTIP, function(){
    console.log("The YelpCamp Server Has Started!");
 });
