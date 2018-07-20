@@ -11,14 +11,19 @@ var express      = require("express"),
     methodOverride = require("method-override"),
     seedDB       = require("./seeds");
 
+//ENVIRONMENT VARIABLES
+var DATABASEURL = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_12";
+var IP = process.env.IP || "127.0.0.1";
+var PORT = process.env.PORT || 3000;
+
 //ROUTE REQUIREMENTS
 var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
-//DATABASE CONNECTION    
+//DATABASE CONNECTION
 // mongoose.connect("mongodb://localhost/yelp_camp_12");
-mongoose.connect("mongodb://saramagdits:hypericum17@ds243441.mlab.com:43441/yelpcamp4646");
+mongoose.connect(DATABASEURL);
 // mongodb://<dbuser>:<dbpassword>@ds243441.mlab.com:43441/yelpcamp4646
 //APP CONFIGURATION
 app.use(bodyParser.urlencoded({extended: true}));
@@ -58,6 +63,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //LISTENER
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(PORT, IP, function(){
    console.log("The YelpCamp Server Has Started!");
 });
